@@ -1,0 +1,879 @@
+igor@igor:~/reactx/reactx6$ npm install @react-navigation/native-stack
+npm WARN deprecated @babel/plugin-proposal-optional-catch-binding@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-catch-binding instead.
+npm WARN deprecated @babel/plugin-proposal-numeric-separator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
+npm WARN deprecated @babel/plugin-proposal-nullish-coalescing-operator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+npm WARN deprecated @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+npm WARN deprecated @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+npm WARN deprecated @babel/plugin-proposal-async-generator-functions@7.20.7: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-async-generator-functions instead.
+npm WARN deprecated @babel/plugin-proposal-object-rest-spread@7.20.7: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-object-rest-spread instead.
+
+added 617 packages in 39s
+
+47 packages are looking for funding
+  run `npm fund` for details
+igor@igor:~/reactx/reactx6$ npm install @react-navigation/stack
+
+added 10 packages, and audited 628 packages in 4s
+
+47 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+igor@igor:~/reactx/reactx6$ npm install @react-navigation/native
+
+up to date, audited 628 packages in 2s
+
+47 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+igor@igor:~/reactx/reactx6$ npx expo install react-native-screens 
+WARNING: The legacy expo-cli does not support Node +17. Migrate to the new local Expo CLI: https://blog.expo.dev/the-new-expo-cli-f4250d8e3421.
+┌───────────────────────────────────────────────────────────────────────────┐
+│                                                                           │
+│   The global expo-cli package has been deprecated.                        │
+│                                                                           │
+│   The new Expo CLI is now bundled in your project in the expo package.    │
+│   Learn more: https://blog.expo.dev/the-new-expo-cli-f4250d8e3421.        │
+│                                                                           │
+│   To use the local CLI instead (recommended in SDK 46 and higher), run:   │
+│   › npx expo <command>                                                    │
+│                                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+> npm install --save react-native-screens
+
+up to date, audited 628 packages in 2s
+
+47 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+igor@igor:~/reactx/reactx6$ npm install --save react-native-screens
+
+up to date, audited 628 packages in 2s
+
+47 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+igor@igor:~/reactx/reactx6$ npm install react-native-screens
+
+up to date, audited 628 packages in 2s
+
+47 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+igor@igor:~/reactx/reactx6$ 
+
+//////////////////////////////////////////////////////////////////
+
+import React from "react";
+import { View, Button, Text, Alert , StyleSheet} from 'react-native';
+
+
+export default function Home({ navigation }) {
+    return (
+      <View style={styles.container}>
+        <Text>Home screen</Text>
+        
+        <Button
+          title="Stisni"
+          onPress={() => Alert.alert("Hello from Home")}
+        />
+        
+        <Button
+        title="Kamate"
+        onPress={() => navigation.navigate('Kamate')}
+      />
+
+
+        <Button
+        title="Stednja"
+        onPress={() => navigation.navigate('Stednja')}
+      />
+
+      
+      <Button
+        title="Renta"
+        onPress={() => navigation.navigate('Renta')}
+      />
+       
+      </View>
+    );
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor:'cyan',
+    },
+  });
+
+
+////////////////////////////////////////////////////////////////////
+
+import React from 'react';
+import {
+  StyleSheet,
+  Button,
+  View,
+  SafeAreaView,
+  Text,
+  Alert,
+  TextInput,
+} from 'react-native';
+import MyButton from './myButton';
+
+
+const Separator = () => <View style={styles.separator} />;
+
+
+export default function Kamate({ navigation }) {
+
+
+    const izracunati=()=>
+    {
+        Alert.alert("Igore opalio");
+    }
+
+
+    return (
+        <SafeAreaView style={styles.container}>
+        <View>
+          
+          <Separator />
+    
+          <Text style={styles.title}>
+              Unesi glavnicu
+          </Text>
+          
+          <TextInput
+            style={styles.input}
+            // onChangeText={onChangeGlavnica}
+            // value={glavnica}
+            placeholder="Unesi glavnicu"
+            keyboardType="numeric"
+          />
+    
+          <Separator />
+    
+          <Text style={styles.title}>
+              Unesi kamatu
+          </Text>
+          
+          <TextInput
+            style={styles.input}
+            // onChangeText={onChangeKamata}
+            // value={kamata}
+            placeholder="Unesi kamatnu stopu"
+            keyboardType="numeric"
+          />
+         
+          <Separator />
+          
+          <Text style={styles.title}>
+              Unesi broj rata
+          </Text>
+          
+          <TextInput
+            style={styles.input}
+            // onChangeText={onChangeRata}
+            // value={rata}
+            placeholder="Unesi broj rata"
+            keyboardType="numeric"
+          />
+          
+          <Separator />
+          
+        {/* <View style={styles.marginax}>
+          <Button style={{ backgroundColor:'green'} }
+            title="Stisni"
+            onPress={() => izracunati()}
+          />
+        </View> */}
+
+        <MyButton onPress={izracunati} title="Press Me" color="#ff00ff" />
+      
+        <Separator />
+       
+          </View>
+    
+      </SafeAreaView>
+    );
+  }
+
+ 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    //marginHorizontal: 16,
+    backgroundColor:'cyan',
+  },
+  title: {
+    textAlign: 'center',
+    marginVertical: 8,
+  },
+  title1: {
+    textAlign: 'center',
+    marginVertical: 8,
+    fontSize:18,
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: '#737373',
+    //borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth:6,
+  },
+  marginax: {
+    marginHorizontal: 26,
+    backgroundColor:'red',
+  },
+});
+
+////////////////////////////////////////////////////////////////
+
+import React from "react";
+import { View, Button, Text, Alert , StyleSheet} from 'react-native';
+
+
+export default function Home({ navigation }) {
+    return (
+      <View style={styles.container}>
+        <Text>Home screen</Text>
+        
+        <View style={styles.buttonx}>
+        <Button 
+          title="Stisni"
+          onPress={() => Alert.alert("Hello from Home")}
+        />
+        </View>
+        
+        <View style={styles.buttonx}>
+        <Button 
+        title="Kamate"
+        onPress={() => navigation.navigate('Kamate')}
+      />
+       </View>
+
+
+      <View style={styles.buttonx}>
+        <Button 
+        title="Stednja"
+        onPress={() => navigation.navigate('Stednja')}
+      />
+       </View>
+
+      
+      <View style={styles.buttonx}>
+      <Button 
+        title="Renta"
+        onPress={() => navigation.navigate('Renta')}
+      />
+       </View>
+
+
+      </View>
+    );
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      backgroundColor:'cyan',
+    },
+      
+    buttonx:{
+        textAlign: 'center',
+        paddingVertical: 18,
+        marginHorizontal:26,
+        fontSize:25,
+        fontWeight:'bold',
+        fontStyle:'italic',
+        color: '#FF0000',
+      },
+    }
+  
+  );
+
+/////////////////////////////////////////////////////////////
+
+import React from "react";
+import { 
+  View, 
+  Button, 
+  Text, 
+  Alert, 
+  StyleSheet,
+  TouchableOpacity
+} from 'react-native';
+
+
+export default function Home({ navigation }) {
+    return (
+      <View style={styles.container}>
+        <Text>Home screen</Text>
+
+        <TouchableOpacity style={[styles.buttonContainer, { backgroundColor:'red' }]} 
+        onPress={() => {Alert.alert("Hello from Home")}}>
+        <Text style={styles.buttonText}>Stisni</Text>
+        </TouchableOpacity>  
+        
+        <TouchableOpacity style={[styles.buttonContainer, { backgroundColor:'red' }]} 
+        onPress={() => navigation.navigate('Kamate')}>
+        <Text style={styles.buttonText}>KAMATE</Text>
+        </TouchableOpacity>  
+        
+
+        <TouchableOpacity style={[styles.buttonContainer, { backgroundColor:'red' }]} 
+        onPress={() => navigation.navigate('Kamate')}>
+        <Text style={styles.buttonText}>KAMATE</Text>
+        </TouchableOpacity>  
+
+        <TouchableOpacity style={[styles.buttonContainer, { backgroundColor:'red' }]} 
+        onPress={() => navigation.navigate('Stednja')}>
+        <Text style={styles.buttonText}>STEDNJA</Text>
+        </TouchableOpacity>  
+
+        <TouchableOpacity style={[styles.buttonContainer, { backgroundColor:'red' }]} 
+        onPress={() => navigation.navigate('Renta')}>
+        <Text style={styles.buttonText}>RENTA</Text>
+        </TouchableOpacity>  
+        
+
+      </View>
+    );
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      backgroundColor:'cyan',
+    },
+      
+    buttonContainer: {
+      margin: 10,
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      borderRadius: 5,
+      alignItems: 'center',
+    },
+    buttonText: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      color: '#FFFFFF',
+      // You can add more font styling properties here
+    },
+    }
+  
+  );
+
+//////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////
+
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './Home';
+import Kamate from './Kamate';
+import Stednja from './Stednja';
+import Renta from './Renta';
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+       <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            title: 'Home',
+            headerStyle: {
+              backgroundColor: '#f4cc1e',
+            },
+            headerTintColor: '#fff',
+          }}
+        />
+
+      <Stack.Screen
+          name="Kamate"
+          component={Kamate}
+          options={{
+            title: 'Kamate',
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+        }}
+      />
+
+      <Stack.Screen
+          name="Stednja"
+          component={Stednja}
+          options={{
+            title: 'Stednja',
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+        }}
+      />
+
+      
+      <Stack.Screen
+          name="Renta"
+          component={Renta}
+          options={{
+            title: 'Renta',
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+        }}
+      />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+
+// export default function App() {
+//   return (
+//     <View style={styles.container}>
+//       <Text>Start!</Text>
+//       <StatusBar style="auto" />
+//     </View>
+//   );
+// }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+===============================================================
+
+import React from 'react';
+import {
+  StyleSheet,
+  Button,
+  View,
+  SafeAreaView,
+  Text,
+  Alert,
+  TextInput,
+} from 'react-native';
+import MyButton from './myButton';
+
+
+const Separator = () => <View style={styles.separator} />;
+
+
+export default function Kamate({ navigation }) {
+
+
+    const izracunati=()=>
+    {
+        Alert.alert("Igore opalio");
+    }
+
+
+    return (
+        <SafeAreaView style={styles.container}>
+        <View>
+          
+          <Separator />
+    
+          <Text style={styles.title}>
+              Unesi glavnicu
+          </Text>
+          
+          <TextInput
+            style={styles.input}
+            // onChangeText={onChangeGlavnica}
+            // value={glavnica}
+            placeholder="Unesi glavnicu"
+            keyboardType="numeric"
+          />
+    
+          <Separator />
+    
+          <Text style={styles.title}>
+              Unesi kamatu
+          </Text>
+          
+          <TextInput
+            style={styles.input}
+            // onChangeText={onChangeKamata}
+            // value={kamata}
+            placeholder="Unesi kamatnu stopu"
+            keyboardType="numeric"
+          />
+         
+          <Separator />
+          
+          <Text style={styles.title}>
+              Unesi broj rata
+          </Text>
+          
+          <TextInput
+            style={styles.input}
+            // onChangeText={onChangeRata}
+            // value={rata}
+            placeholder="Unesi broj rata"
+            keyboardType="numeric"
+          />
+          
+          <Separator />
+          
+        {/* <View style={styles.marginax}>
+          <Button style={{ backgroundColor:'green'} }
+            title="Stisni"
+            onPress={() => izracunati()}
+          />
+        </View> */}
+
+        <MyButton onPress={izracunati} title="Press Me" color="#ff00ff" />
+      
+        <Separator />
+       
+          </View>
+    
+      </SafeAreaView>
+    );
+  }
+
+ 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    //marginHorizontal: 16,
+    backgroundColor:'cyan',
+  },
+  title: {
+    textAlign: 'center',
+    marginVertical: 8,
+  },
+  title1: {
+    textAlign: 'center',
+    marginVertical: 8,
+    fontSize:18,
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: '#737373',
+    //borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth:6,
+  },
+  marginax: {
+    marginHorizontal: 26,
+    backgroundColor:'red',
+  },
+});
+
+===================================================================
+
+import React from "react";
+import { View, Button, Text, Alert , StyleSheet} from 'react-native';
+
+
+export default function Home1({ navigation }) {
+    return (
+      <View style={styles.container}>
+        <Text>Home screen</Text>
+     
+        <Button
+          title="Stisni"
+          onPress={() => Alert.alert("Renta")}
+        />
+      </View>
+    );
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor:'cyan',
+    },
+  });
+
+------------------------------------------------------------------
+
+import React from "react";
+import { View, Button, Text, Alert , StyleSheet} from 'react-native';
+
+
+export default function Home1({ navigation }) {
+    return (
+      <View style={styles.container}>
+        <Text>Home screen</Text>
+     
+        <Button
+          title="Stisni"
+          onPress={() => Alert.alert("Stednja")}
+        />
+      </View>
+    );
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor:'cyan',
+    },
+  });
+
+
+------------------------------------------------------------------
+
+import React from 'react';
+import { View, Button, StyleSheet } from 'react-native';
+
+const MyButton = ({ onPress, title, color }) => (
+  <View style={[styles.buttonContainer, { backgroundColor: color }]}>
+    {/* <Button title={title} onPress={onPress} color="#FFF000" /> */}
+    <Button title={title} onPress={onPress}  color="#F0F0F0" /> 
+  </View>
+);
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    margin: 10,
+    borderRadius: 5,
+    overflow: 'hidden', // This ensures the borderRadius is respected
+  },
+});
+
+export default MyButton;
+
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+import React from 'react';
+import { View, Button, Alert, StyleSheet } from 'react-native';
+
+const App = () => {
+  const handlePress = () => {
+    Alert.alert('Button Pressed');
+  };
+
+  return (
+    <View style={styles.container}>
+      <Button
+        onPress={handlePress}
+        title="Press Me"
+        color="white" // Sets the title (text) color
+        style={styles.button} // Sets the background color
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff', // Set the container background color
+  },
+  button: {
+    backgroundColor: 'blue', // Set the button background color
+    borderRadius: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+});
+
+export default App;
+
+///////////////////////////////////////////////////////////////
+
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './Home';
+import Kamate from './Kamate';
+import Stednja from './Stednja';
+import Renta from './Renta';
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+       <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            title: 'Home',
+            headerStyle: {
+              backgroundColor: '#f4cc1e',
+            },
+            headerTintColor: '#fff',
+          }}
+        />
+
+      <Stack.Screen
+          name="Kamate"
+          component={Kamate}
+          options={{
+            title: 'Kamate',
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+        }}
+      />
+
+      <Stack.Screen
+          name="Stednja"
+          component={Stednja}
+          options={{
+            title: 'Stednja',
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+        }}
+      />
+
+      
+      <Stack.Screen
+          name="Renta"
+          component={Renta}
+          options={{
+            title: 'Renta',
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+        }}
+      />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+
+// export default function App() {
+//   return (
+//     <View style={styles.container}>
+//       <Text>Start!</Text>
+//       <StatusBar style="auto" />
+//     </View>
+//   );
+// }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+
+
+////////////////////////////////////////////////////////////////
+
+import React from 'react';
+import { View, Button, Alert, StyleSheet } from 'react-native';
+
+const App = () => {
+  const handlePress = () => {
+    Alert.alert('Button Pressed');
+  };
+
+  return (
+    <View style={styles.container}>
+      <Button
+        onPress={handlePress}
+        title="Press Me"
+        color="red" // Sets the title (text) color
+        style={styles.button} // Sets the background color
+      />
+
+<Button
+              title="Dark"
+              buttonStyle={{ backgroundColor: 'rgba(39, 39, 39, 1)' }}
+              containerStyle={{
+                width: 200,
+                marginHorizontal: 50,
+                marginVertical: 10,
+              }}
+              titleStyle={{ backgroundColor: 'red', marginHorizontal: 20 }}
+            />
+
+
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff', // Set the container background color
+  },
+  button: {
+    backgroundColor: 'blue', // Set the button background color
+    borderRadius: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+});
+
+export default App;
+
+
+//////////////////////////////////////////////////////////////
+
+ic_launcher.png
+ic_launcher_round.png
+
+react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
+
+igor@igor:~/reactx/reactx6/Financije$ cd android
+igor@igor:~/reactx/reactx6/Financije/android$ ./gradlew assembleRelease
+
